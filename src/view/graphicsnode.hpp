@@ -84,8 +84,8 @@ class GraphicsNode : public QGraphicsObject {
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override {
         QGraphicsItem::mousePressEvent(event);
     }
-    virtual void mouseDoubleClickEvent(
-        QGraphicsSceneMouseEvent *event) override;
+    //virtual void mouseDoubleClickEvent(
+    //    QGraphicsSceneMouseEvent *event) override;
     virtual QVariant itemChange(GraphicsItemChange change,
                                 const QVariant &value) override;
 

@@ -383,17 +383,16 @@ void GraphicsNode::updateGeometry() {
     _new_sink_btn->setPos(0, ypos1 + _item_padding * 2);
 
     // sources are placed bottom/right
-    qreal ypos2 = _height - _bottom_margin;
+    qreal ypos2 = _top_margin;
     for (size_t i = _sources.size(); i > 0; i--) {
         auto s = _sources[i - 1];
         auto size = s->getSize();
 
-        ypos2 -= size.height();
         s->setPos(_width, ypos2 + size.height() / 2.0);
-        ypos2 -= _item_padding;
+        ypos2 += size.height() + _item_padding;
     }
 
-    _new_source_btn->setPos(_width, ypos2 - _item_padding * 2);
+    _new_source_btn->setPos(_width, ypos2 + _item_padding * 2);
 
     // central widget
     if (_central_proxy != nullptr) {
@@ -484,7 +483,7 @@ void GraphicsNode::setColors(const QColor &base) {
     update(boundingRect());
 }
 
-void GraphicsNode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+/*void GraphicsNode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 
     if (!_sub_structure_scene) {
         qDebug() << "Initializing a sub-architecture for node " << QString::fromStdString(_node.lock()->name());
@@ -499,3 +498,4 @@ void GraphicsNode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 
     QGraphicsItem::mouseDoubleClickEvent(event);
 }
+*/
