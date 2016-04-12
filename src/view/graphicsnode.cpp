@@ -417,6 +417,8 @@ void GraphicsNode::setCentralWidget(QWidget *widget) {
 void GraphicsNode::updateSizeHints() {
     qreal min_width = 0.0;                            // _hard_min_width;
     qreal min_height = _top_margin + _bottom_margin;  // _hard_min_height;
+    qreal right_height = _top_margin + _bottom_margin;
+    qreal right_width = 0.0;
 
     // sinks
     for (size_t i = 0; i < _sinks.size(); i++) {
@@ -461,12 +463,14 @@ void GraphicsNode::updateSizeHints() {
         auto s = _sources[i];
         auto size = s->getMinimalSize();
 
-        min_height += size.height() + _item_padding;
-        min_width = std::max(size.width(), min_width);
+        right_height += size.height() + _item_padding;
+        right_width = std::max(size.width(), right_width);
     }
 
+    min_width += right_width;
     _min_width = std::max(min_width, _hard_min_width);
     _min_height = std::max(min_height, _hard_min_height);
+    _min_height = std::max(_min_height, right_height);
 }
 
 void GraphicsNode::propagateChanges() {
