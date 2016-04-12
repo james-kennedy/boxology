@@ -25,7 +25,7 @@ GraphicsNodeScene::GraphicsNodeScene(Architecture *architecture,
       architecture(architecture),
       parent_node(parent_node),
       dontGrabKeyPresses(false),
-      paintBackground(true),
+      _paintBackground(true),
       _color_background(QColor("#393939")),
       _color_light(QColor("#2F2F2F")),
       _color_dark(QColor("#292929")),
@@ -182,6 +182,46 @@ void GraphicsNodeScene::onDescriptionChanged(const QString &content) {
     architecture->description = _arch_desc->toHtml().toStdString();
 }
 
+void GraphicsNodeScene::hideHelpers()
+{
+
+    _paintBackground = false;
+
+    for (auto node : _nodes) {
+        node->hideHelpers();
+    }
+}
+
+void GraphicsNodeScene::showHelpers()
+{
+    _paintBackground = true;
+
+     for (auto node : _nodes) {
+        node->showHelpers();
+     }
+}
+
+void GraphicsNodeScene::disableGraphicsEffects()
+{
+     for (auto node : _nodes) {
+        node->disableGraphicsEffects();
+     }
+     for (auto edge : _edges) {
+        edge->disableGraphicsEffects();
+     }
+
+}
+void GraphicsNodeScene::enableGraphicsEffects()
+{
+     for (auto node : _nodes) {
+        node->enableGraphicsEffects();
+     }
+     for (auto edge : _edges) {
+        edge->enableGraphicsEffects();
+     }
+
+}
+
 set<shared_ptr<GraphicsNode>> GraphicsNodeScene::selected() const {
     set<shared_ptr<GraphicsNode>> selectedNodes;
 
@@ -209,7 +249,7 @@ void GraphicsNodeScene::set_description(const string &name,
  */
 void GraphicsNodeScene::drawBackground(QPainter *painter, const QRectF &rect) {
 
-    if(!paintBackground) return;
+    if(!_paintBackground) return;
 
     // call parent method
     QGraphicsScene::drawBackground(painter, rect);
