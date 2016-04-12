@@ -484,6 +484,35 @@ void GraphicsNode::setColors(const QColor &base) {
     update(boundingRect());
 }
 
+void GraphicsNode::hideHelpers()
+{
+    _new_sink_btn->hide();
+    _new_source_btn->hide();
+
+    for (auto socket : _sources) socket->hideHelpers();
+    for (auto socket : _sinks) socket->hideHelpers();
+}
+
+void GraphicsNode::showHelpers()
+{
+    _new_sink_btn->show();
+    _new_source_btn->show();
+
+    for (auto socket : _sources) socket->showHelpers();
+    for (auto socket : _sinks) socket->showHelpers();
+
+}
+
+void GraphicsNode::disableGraphicsEffects()
+{
+    _effect->setEnabled(false);
+}
+
+void GraphicsNode::enableGraphicsEffects()
+{
+    _effect->setEnabled(true);
+}
+
 void GraphicsNode::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 
     if (!_sub_structure_scene) {
