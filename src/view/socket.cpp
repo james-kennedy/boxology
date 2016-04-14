@@ -104,6 +104,8 @@ QSizeF GraphicsNodeSocket::getMinimalSize() const {
 
 QSizeF GraphicsNodeSocket::getSize() const { return getMinimalSize(); }
 
+QString GraphicsNodeSocket::getText() const { return _text->toPlainText(); }
+
 void GraphicsNodeSocket::onDeletion() {
     if (_edges.empty()) {
         _socket.node.lock()->remove_port(_socket.port.lock());

@@ -71,6 +71,7 @@ class GraphicsNodeSocket : public QObject, public QGraphicsItem {
 
     QSizeF getSize() const;
     QSizeF getMinimalSize() const;
+    QString getText() const;
 
     /**
      * type of the class. usefull within a QGraphicsScene to distinguish
