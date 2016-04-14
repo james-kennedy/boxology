@@ -280,7 +280,7 @@ void GraphicsNode::refreshNode() {
 
     auto color = QColor(QString::fromStdString(
         COGNITIVE_FUNCTION_COLORS.at(node->cognitive_function())));
-    color.setAlpha(120);
+    color.setAlpha(200);
     setColors(color);
 
     set<PortPtr> in_node = node->ports();
