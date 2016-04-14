@@ -370,6 +370,20 @@ void GraphicsNode::updateGeometry() {
     // title
     _title_item->setTextWidth(_width);
 
+    std::sort(_sinks.begin(), _sinks.end(),
+                [](const std::shared_ptr<GraphicsNodeSocket> &a, const std::shared_ptr<GraphicsNodeSocket> &b)
+                {
+                    return a->getText() < b->getText();
+                }
+            );
+
+    std::sort(_sources.begin(), _sources.end(),
+                [](const std::shared_ptr<GraphicsNodeSocket> &a, const std::shared_ptr<GraphicsNodeSocket> &b)
+                {
+                    return a->getText() < b->getText();
+                }
+            );
+
     qreal ypos1 = _top_margin;
     for (size_t i = 0; i < _sinks.size(); i++) {
         auto s = _sinks[i];
@@ -384,8 +398,8 @@ void GraphicsNode::updateGeometry() {
 
     // sources are placed bottom/right
     qreal ypos2 = _top_margin;
-    for (size_t i = _sources.size(); i > 0; i--) {
-        auto s = _sources[i - 1];
+    for (size_t i = 0; i < _sources.size(); i++) {
+        auto s = _sources[i];
         auto size = s->getSize();
 
         s->setPos(_width, ypos2 + size.height() / 2.0);
