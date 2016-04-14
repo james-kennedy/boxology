@@ -1,2 +1,6 @@
 build/
 build/
+*.user
+boxology.pro.user.16
+boxology.pro.user.3.2-pre1
+*.18
