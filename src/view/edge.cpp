@@ -38,7 +38,7 @@ GraphicsDirectedEdge::GraphicsDirectedEdge(QPoint start, QPoint stop,
 
     _effect->setBlurRadius(15.0);
     _effect->setColor(QColor("#99050505"));
-    setGraphicsEffect(_effect);
+    //setGraphicsEffect(_effect);
 
     _label->setDefaultTextColor(QColor("#888888"));
 
