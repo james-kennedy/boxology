@@ -46,8 +46,8 @@ void XmlVisitor::onNode(shared_ptr<const Node> node) {
 
 void XmlVisitor::onConnection(shared_ptr<const Connection> connection) {
     ss << "<connection>" << endl;
-    ss << "    <from>" << connection->from.port.lock()->name << "</from>" << endl;
-    ss << "    <to>" << connection->to.port.lock()->name << "</to>" << endl;
+    ss << "    <from>" << connection->from.port.lock()->name.substr(5) << "</from>" << endl;
+    ss << "    <to>" << connection->to.port.lock()->name.substr(5) << "</to>" << endl;
     ss << "    <protocol>tcp</protocol>" << endl;
     ss << "</connection>" << endl;
     ss << endl;
