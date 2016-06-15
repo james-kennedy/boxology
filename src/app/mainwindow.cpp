@@ -39,6 +39,7 @@
 
 #include "../json_visitor.hpp"
 #include "../tikz_visitor.hpp"
+#include "../xml_visitor.hpp"
 
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
@@ -293,4 +294,26 @@ void MainWindow::saveTikZ(const std::string& filename) const {
 
     tikz_file << output;
 
+}
+
+void MainWindow::on_actionToXML_triggered()
+{
+    auto newPath = QFileDialog::getSaveFileName(
+        this, "Save architecture to XML", _xmlPath, "XML file (*.xml)");
+
+    if (newPath.isEmpty())
+        return;
+
+    _xmlPath = newPath;
+    saveXml(_xmlPath.toStdString());
+}
+
+void MainWindow::saveXml(const std::string& filename) const {
+
+    XmlVisitor xml(*_active_arch);
+    auto output = xml.visit();
+
+    ofstream xml_file(filename, std::ofstream::out);
+
+    xml_file << output;
 }

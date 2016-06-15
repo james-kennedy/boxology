@@ -40,13 +40,14 @@ class MainWindow : public QMainWindow {
     void on_actionSave_to_SVG_triggered();
     void on_actionExport_to_TikZ_triggered();
     void onCogButtonTriggered(CognitiveFunction cognitive_function);
+    void on_actionToXML_triggered();
 
-
-   private:
+private:
     void save(const std::string& filename) const;
     void savePng(const QString& filename) const;
     void saveTikZ(const std::string& filename) const;
     void saveSvg(const QString& filename) const;
+    void saveXml(const std::string& filename) const;
 
     std::string hierarchy_name(const std::string& name, GraphicsNodeScene* scene);
     void spawnInitialNodes();
@@ -69,6 +70,7 @@ class MainWindow : public QMainWindow {
     QString _pngPath;
     QString _svgPath;
     QString _tikzPath;
+    QString _xmlPath;
 };
 
 #endif // __MAINWINDOW_HPP

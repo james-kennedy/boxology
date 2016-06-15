@@ -33,6 +33,7 @@
    <addaction name="actionAdd_node"/>
    <addaction name="separator"/>
    <addaction name="actionFromJson"/>
+   <addaction name="actionToXML"/>
    <addaction name="actionToJson"/>
    <addaction name="separator"/>
    <addaction name="actionExport_to_PNG"/>
@@ -90,7 +91,7 @@
   </action>
   <action name="actionSave_to_SVG">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../rc/resources.qrc">
      <normaloff>:/icons/svg.png</normaloff>:/icons/svg.png</iconset>
    </property>
    <property name="text">
@@ -102,7 +103,7 @@
   </action>
   <action name="actionExport_to_TikZ">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../rc/resources.qrc">
      <normaloff>:/icons/tex.png</normaloff>:/icons/tex.png</iconset>
    </property>
    <property name="text">
@@ -111,7 +112,7 @@
   </action>
   <action name="actionExport_to_PNG">
    <property name="icon">
-    <iconset>
+    <iconset resource="../../rc/resources.qrc">
      <normaloff>:/icons/image.png</normaloff>:/icons/image.png</iconset>
    </property>
    <property name="text">
@@ -121,7 +122,20 @@
     <string>Export to PNG</string>
    </property>
   </action>
+  <action name="actionToXML">
+   <property name="icon">
+    <iconset theme="document-save"/>
+   </property>
+   <property name="text">
+    <string>ToXML</string>
+   </property>
+   <property name="toolTip">
+    <string>Save to XML</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../rc/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
