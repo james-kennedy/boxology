@@ -5,5 +5,9 @@
         <file>svg.png</file>
         <file>tex.png</file>
         <file>image.png</file>
+        <file>add.png</file>
+        <file>open.png</file>
+        <file>save.png</file>
+        <file>xml-file.png</file>
     </qresource>
 </RCC>

@@ -18,8 +18,14 @@
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="movable">
     <bool>false</bool>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
    <property name="floatable">
     <bool>false</bool>
@@ -33,8 +39,8 @@
    <addaction name="actionAdd_node"/>
    <addaction name="separator"/>
    <addaction name="actionFromJson"/>
-   <addaction name="actionToXML"/>
    <addaction name="actionToJson"/>
+   <addaction name="actionToXML"/>
    <addaction name="separator"/>
    <addaction name="actionExport_to_PNG"/>
    <addaction name="actionSave_to_SVG"/>
@@ -55,9 +61,8 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAdd_node">
    <property name="icon">
-    <iconset theme="list-add">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../../rc/resources.qrc">
+     <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
    </property>
    <property name="text">
     <string>Add node</string>
@@ -65,9 +70,8 @@
   </action>
   <action name="actionToJson">
    <property name="icon">
-    <iconset theme="document-save">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../../rc/resources.qrc">
+     <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>ToJson</string>
@@ -78,9 +82,8 @@
   </action>
   <action name="actionFromJson">
    <property name="icon">
-    <iconset theme="document-open">
-     <normaloff/>
-    </iconset>
+    <iconset resource="../../rc/resources.qrc">
+     <normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
    </property>
    <property name="text">
     <string>FromJson</string>
@@ -124,13 +127,20 @@
   </action>
   <action name="actionToXML">
    <property name="icon">
-    <iconset theme="document-save"/>
+    <iconset resource="../../rc/resources.qrc">
+     <normaloff>:/icons/xml-file.png</normaloff>:/icons/xml-file.png</iconset>
    </property>
    <property name="text">
     <string>ToXML</string>
    </property>
    <property name="toolTip">
     <string>Save to XML</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+   <property name="priority">
+    <enum>QAction::NormalPriority</enum>
    </property>
   </action>
  </widget>
