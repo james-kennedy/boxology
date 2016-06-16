@@ -11,16 +11,20 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = boxology
 TEMPLATE = app
 
+CONFIG += c++11
+
 QMAKE_CXXFLAGS += -std=c++11
 
-_BOOST_ROOT = $$BOOST_ROOT
-isEmpty(_BOOST_ROOT) {
-    message(\"Boost Library\" environment variable not detected...)
-    !build_pass:error("Please set the environment variable `BOOST_ROOT`. For example, BOOST_ROOT=c:\\boost_1_53_0")
-} else {
-    message(\"Boost Library\" detected in BOOST_ROOT = \"$$_BOOST_ROOT\")
-    INCLUDEPATH += $$_BOOST_ROOT
-}
+#_BOOST_ROOT = $$BOOST_ROOT
+#isEmpty(_BOOST_ROOT) {
+#    message(\"Boost Library\" environment variable not detected...)
+#    !build_pass:error("Please set the environment variable `BOOST_ROOT`. For example, BOOST_ROOT=c:\\boost_1_53_0")
+#} else {
+#    message(\"Boost Library\" detected in BOOST_ROOT = \"$$_BOOST_ROOT\")
+#    INCLUDEPATH += $$_BOOST_ROOT
+#}
+
+INCLUDEPATH += "C:/Program Files/boost_1_61_0/"
 
 SOURCES += \
     src/app/main.cpp \
@@ -41,7 +45,8 @@ SOURCES += \
     src/node.cpp \
     src/visitor.cpp \
     src/architecture_manager.cpp \
-    src/tikz_visitor.cpp
+    src/tikz_visitor.cpp \
+    src/xml_visitor.cpp
 
 HEADERS  += \
     src/app/mainwindow.hpp \
@@ -62,7 +67,8 @@ HEADERS  += \
     src/node.hpp \
     src/visitor.hpp \
     src/architecture_manager.hpp \
-    src/tikz_visitor.hpp
+    src/tikz_visitor.hpp \
+    src/xml_visitor.hpp
 
 FORMS    += \
     src/app/mainwindow.ui
